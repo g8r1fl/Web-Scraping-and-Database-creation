@@ -1,5 +1,6 @@
 from splinter import Browser
 from bs4 import BeautifulSoup as bs
+import pandas as pd
 import time
 
 
@@ -32,6 +33,7 @@ def scrape_info():
     # Close the browser after scraping
     browser.quit()
 
+# Get Mars featured image
     # open browser again for next webpage scrape
     browser = init_browser()
 
@@ -60,7 +62,24 @@ def scrape_info():
     # Close the browser after scraping
     browser.quit()
 
+# Get Mars facts table
+    # open browser again for next webpage scrape
+    browser = init_browser()
 
+    # Visit mars.nasa.gov/news
+    url = 'https://space-facts.com/mars/'
+    browser.visit(url)
+
+    time.sleep(1)
+
+    # read tables from web and put in dataframe
+    tables = pd.read_html(url)
+    table = tables[0]
+
+    # cast dataframe to html
+    table.to_html('table.html')
+
+    browser.quit()
 
     # return results
     return mars_news
