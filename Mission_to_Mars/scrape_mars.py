@@ -31,21 +31,22 @@ def scrape_info():
     }
 
     # Close the browser after scraping
-    browser.quit()
+    # browser.quit()
 
 # Get Mars featured image
     # open browser again for next webpage scrape
-    browser = init_browser()
+    # browser = init_browser()
 
     # Visit mars.nasa.gov/news
-    url = 'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html'
-    browser.visit(url)
+    url2 = 'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html'
+    browser.visit(url2)
 
     time.sleep(1)
 
     # Scrape page into Soup
     # HTML object
     html = browser.html
+    base2 = 'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/'
 
     # Parse HTML with Beautiful Soup
     soup = bs(html, 'html.parser')
@@ -54,30 +55,34 @@ def scrape_info():
     # find the href within the div
     ref = img_url.find('a')['href']
     # build the final link for the featured image
-    featured_image_url = ['https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/' + ref]
+    featured_image_url = base2 + ref
 
     # add data to dictionary
     mars_news['featured_image_url'] = featured_image_url
 
     # Close the browser after scraping
-    browser.quit()
+    # browser.quit()
 
 # Get Mars facts table
     # open browser again for next webpage scrape
-    browser = init_browser()
+    # browser = init_browser()
 
     # Visit mars.nasa.gov/news
-    url = 'https://space-facts.com/mars/'
-    browser.visit(url)
+    url3 = 'https://space-facts.com/mars/'
+    browser.visit(url3)
 
     time.sleep(1)
 
     # read tables from web and put in dataframe
-    tables = pd.read_html(url)
+    tables = pd.read_html(url3)
     table = tables[0]
+    table.columns = ['','Mars']
 
     # cast dataframe to html
-    table.to_html('table.html')
+    table.to_html('table.html', index=False)
+
+    # add data to dictionary
+    mars_news['table'] = 'table.html'
 
     browser.quit()
 
