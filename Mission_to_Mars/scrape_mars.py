@@ -23,7 +23,8 @@ def scrape_info():
     soup = bs(html, "html.parser")
 
     # get latest news title and summary paragraph
-    news_title = soup.find('div', class_='content_title').text
+    title_list = soup.find_all('div', class_='content_title').text
+    news_title = title_list[1].text
     news_p = soup.find('div', class_='rollover_description_inner').text
 
     mars_news = {
