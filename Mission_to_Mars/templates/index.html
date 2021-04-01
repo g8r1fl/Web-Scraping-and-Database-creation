@@ -21,15 +21,16 @@
         <h4>{{data.news_title}}</h4>
         <h6>{{data.news_p}}</h6>
         <div class="row">
-          <div class="col">
+          <div class="col-8">
           <h2><strong>Featured Mars Image</strong></h2>    
-            <img src="{{data.featured_image_url}}">   
+            <img src="{{data.featured_image_url}}" class="img-fluid img-thumbnail" alt="...">   
           </div>
-          <div class="col">
+          <div class="col-4">
           <h2>Mars Facts</h2>    
             <div class="embed-responsive embed-responsive-4by3 bg-white">
+              "{{data.table}}"
               <!-- <iframe src="{{data.table}}" height="800px" width="500px"></iframe> -->
-              <iframe src="table.html" height="800px" width="500px"></iframe>
+              <!-- <iframe src="table.html" height="800px" width="500px"></iframe> -->
             </div>      
           </div>
         </div>
