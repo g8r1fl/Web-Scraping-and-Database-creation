@@ -60,7 +60,7 @@ def scrape_info():
 
     # URL of page to be scraped
     url4 = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
-    base2 = 'https://astrogeology.usgs.gov'
+    base2 = 'https://astropedia.astrogeology.usgs.gov/download/'
     browser.visit(url4)
     # HTML object
     html = browser.html
@@ -69,7 +69,7 @@ def scrape_info():
 
     results = soup.find_all('div', class_='item')
     title_obj = [i.h3.text for i in results]
-    href_obj = [base2 + i.a['href'] + '.tif' for i in results]
+    href_obj = [base2 + i.a['href'][12:] + '.tif/full.jpg' for i in results]
 
     hemisphere_image_urls = []
     for i in range(len(title_obj)):
