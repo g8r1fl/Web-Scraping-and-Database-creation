@@ -27,11 +27,7 @@
           </div>
           <div class="col-4">
           <h2>Mars Facts</h2>    
-            <div class="embed-responsive embed-responsive-4by3 bg-white">
-              "{{data.table}}"
-              <!-- <iframe src="{{data.table}}" height="800px" width="500px"></iframe> -->
-              <!-- <iframe src="table.html" height="800px" width="500px"></iframe> -->
-            </div>      
+            <table>{{data.table | safe}}</table>     
           </div>
         </div>
         <div class="row">

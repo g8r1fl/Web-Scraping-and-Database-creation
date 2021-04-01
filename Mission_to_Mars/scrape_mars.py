@@ -54,8 +54,13 @@ def scrape_info():
     tables = pd.read_html(url3)
     table = tables[0]
     # found solutions https://stackoverflow.com/questions/11346283/renaming-columns-in-pandas #2192
-    table.columns = ['Description','Mars']
+    # table.columns = ['Description','Mars']
     table = table.to_html(index=False)
+    # table_data = []
+    # for i in range(len(table)):
+    #     dict {}
+    #     dict['description'] = table.loc[i, 0]
+    #     dict['value'] = 
 
     # URL of page to be scraped
     url4 = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
