@@ -94,3 +94,7 @@ def scrape_info():
     }
     # return results
     return mars_news
+
+
+
+
