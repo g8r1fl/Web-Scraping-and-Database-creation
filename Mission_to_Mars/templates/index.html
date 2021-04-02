@@ -57,26 +57,24 @@
           </div>
         </div>
         <div class="row">
-          <h2 class="text-center"><strong>Mars Hemispheres</strong></h2>
-          <hr>
-          <div class="col-6 mb-4">
-            <img src="{{data.hemisphere_image_urls[0].img_url}}" class="img-fluid img-thumbnail" alt="...">
-            <h5>{{data.hemisphere_image_urls[0].title}}</h5>
-          </div>
-          <div class="col-6 mb-4">
-            <img src="{{data.hemisphere_image_urls[1].img_url}}" class="img-fluid img-thumbnail" alt="...">
-            <h5>{{data.hemisphere_image_urls[1].title}}</h5>
+          <div class="col-12">
+            <h2 class="text-center"><strong>Mars Hemispheres</strong></h2>
+            <hr>
           </div>
         </div>
         <div class="row">
-          <div class="col-6 mb-4">
-            <img src="{{data.hemisphere_image_urls[2].img_url}}" class="img-fluid img-thumbnail" alt="...">
-            <h5>{{data.hemisphere_image_urls[2].title}}</h5>
+          {% for hemisphere in data.hemisphere_image_urls %}
+          <div class="col-6">
+            <div class="boxmargin">
+              <div class="card" style="width: 33rem; padding: 4px;">
+              <img class="card-img-top" src="{{hemishere.url | safe}}" alt="hemisphere">
+                <div class="card-body">
+                  <h5 class="card-title">{{hemisphere.title | safe}}</h5>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col-6 mb-4">
-            <img src="{{data.hemisphere_image_urls[3].img_url}}" class="img-fluid img-thumbnail" alt="...">
-            <h5>{{data.hemisphere_image_urls[3].title}}</h5>
-          </div>
+          {% endfor %}
         </div>
     </div>
 
